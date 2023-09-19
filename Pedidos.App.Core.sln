@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentacion", "1. Presentacion", "{19496CD3-D82B-439D-B8E0-0EC2F883FF89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Negocio", "2. Negocio", "{2AC3CB5E-3959-46EC-B308-C9CF97290C59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Datos", "3. Datos", "{8D0F9ADB-CC2A-4848-8080-0DCB5F9A8DCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pedidos.Database", "Pedidos.Database", "{A5100DEF-DDE4-4159-826D-CC347CEBA1B8}"
+	ProjectSection(SolutionItems) = preProject
+		SP_COMISIONVENDEDORDEPARTAMENTOS_CONSULTAR.sql = SP_COMISIONVENDEDORDEPARTAMENTOS_CONSULTAR.sql
+		SP_ITEMS_INSERTAR.sql = SP_ITEMS_INSERTAR.sql
+		SP_PEDIDOS_CONSULTAR.sql = SP_PEDIDOS_CONSULTAR.sql
+		SP_PEDIDOS_INSERTAR.sql = SP_PEDIDOS_INSERTAR.sql
+		SP_VENTASACUMULADASDEPARTAMENTOS_CONSULTAR.sql = SP_VENTASACUMULADASDEPARTAMENTOS_CONSULTAR.sql
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedidos.Api.Core", "Pedidos.Api.Core\Pedidos.Api.Core.csproj", "{228B7E7C-61D3-45E0-B2FB-F93EB0948582}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedidos.Datos.Core", "Pedidos.Datos.Core\Pedidos.Datos.Core.csproj", "{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedidos.Negocio.Core", "Pedidos.Negocio.Core\Pedidos.Negocio.Core.csproj", "{CED1D0FD-5DDC-48F8-9C03-318C743BAA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedidos.Web.Core", "Pedidos.Web.Core\Pedidos.Web.Core.csproj", "{A7541425-0E1B-46A8-9B57-C1A12D927D4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{228B7E7C-61D3-45E0-B2FB-F93EB0948582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228B7E7C-61D3-45E0-B2FB-F93EB0948582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228B7E7C-61D3-45E0-B2FB-F93EB0948582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228B7E7C-61D3-45E0-B2FB-F93EB0948582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED1D0FD-5DDC-48F8-9C03-318C743BAA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED1D0FD-5DDC-48F8-9C03-318C743BAA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED1D0FD-5DDC-48F8-9C03-318C743BAA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED1D0FD-5DDC-48F8-9C03-318C743BAA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7541425-0E1B-46A8-9B57-C1A12D927D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7541425-0E1B-46A8-9B57-C1A12D927D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7541425-0E1B-46A8-9B57-C1A12D927D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7541425-0E1B-46A8-9B57-C1A12D927D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5100DEF-DDE4-4159-826D-CC347CEBA1B8} = {8D0F9ADB-CC2A-4848-8080-0DCB5F9A8DCB}
+		{228B7E7C-61D3-45E0-B2FB-F93EB0948582} = {2AC3CB5E-3959-46EC-B308-C9CF97290C59}
+		{B004B6E2-67F1-448D-AA9B-EFEB3AF8620D} = {8D0F9ADB-CC2A-4848-8080-0DCB5F9A8DCB}
+		{CED1D0FD-5DDC-48F8-9C03-318C743BAA04} = {2AC3CB5E-3959-46EC-B308-C9CF97290C59}
+		{A7541425-0E1B-46A8-9B57-C1A12D927D4C} = {19496CD3-D82B-439D-B8E0-0EC2F883FF89}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72FF912C-BB03-4E97-B317-4432D819DF4C}
+	EndGlobalSection
+EndGlobal

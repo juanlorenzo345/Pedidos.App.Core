@@ -1,0 +1,74 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.PagedList<Pedidos.Web.Core.Models.Dto.GetPedidosDTO>
+
+<div class="wrapper">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Ingresar un Pedido</h1>
+        <button id="btnAgregar" class="boton-primario" data-bs-toggle="modal" data-bs-target="#agregarPedidoModal">Agregar Nuevo Pedido</button>
+    </div>
+</div>
+<div>
+    @await Html.PartialAsync("_AgregarRegistro")
+</div>
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h3>Pedidos:</h3>
+
+        <table class="tabla-responsive">
+            <thead>
+                <tr>
+                    <th class="numTitle">Nro. Pedido</th>
+                    <th>Vendedor</th>
+                    <th>Cliente</th>
+                    <th>Departamento</th>
+                    <th>Fecha Pedido</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    @foreach (var pedido in Model)
+                    {
+                        <tr>
+                            <td class="num">@pedido.NumPedido</td>
+                            <td>@pedido.NomVendedor</td>
+                            <td>@pedido.NomCliente</td>
+                            <td>@pedido.NomDep</td>
+                            <td>@pedido.Fecha</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">No hay resultados disponibles.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination-container">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var elementosNum = document.querySelectorAll('.num');
+
+    function agregarSeparadorDeMiles(numero) {
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    elementosNum.forEach(function(elemento) {
+        var numeroSinSeparador = parseInt(elemento.textContent, 10);
+        elemento.textContent = agregarSeparadorDeMiles(numeroSinSeparador);
+    });
+</script>

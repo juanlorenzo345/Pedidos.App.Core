@@ -1,0 +1,80 @@
+﻿
+@model List<Pedidos.Web.Core.Models.Dto.ComisionVendedorDTO>
+
+<div class="wrapper">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+
+<div class="wrapper_st">
+    <div class="wrapper">
+        <h1>Comisiones por Vendedor</h1>
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+        <form id="uploadForm" asp-action="GetComisiones" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <h3>Seleccione:</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Fecha:</label>
+                        <input type="datetime-local" name="FechaInicial" class="form-control" required/>
+                    </div>
+                </div>
+              
+            </div>
+            <br />
+            <button type="submit" class="boton-primario">Buscar</button>
+        </form>
+    </div>
+</div>
+
+
+    <div class="wrapper_st">
+        <div class="wrapper">
+            <h3>Resultados:</h3>
+
+                <table class="tabla-responsive">
+                    <thead>
+                        <tr>
+                            <th>Vendedor</th>
+                            <th class="numTitle">Comisiones</th>
+                    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            @foreach (var vendedor in Model)
+                            {
+                                <tr>
+                                    <td>@vendedor.NomVendedor</td>
+                                    <td class="num">@vendedor.ComisionAcumulada</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="2">No hay resultados disponibles.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+<script>
+    
+    var elementosNum = document.querySelectorAll('.num');
+
+    function agregarSeparadorDeMiles(numero) {
+        return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    elementosNum.forEach(function(elemento) {
+        var numeroSinSeparador = parseInt(elemento.textContent, 10);
+        elemento.textContent = agregarSeparadorDeMiles(numeroSinSeparador);
+    });
+
+</script>

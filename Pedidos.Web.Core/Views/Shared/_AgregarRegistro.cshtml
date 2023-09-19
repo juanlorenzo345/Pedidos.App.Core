@@ -1,0 +1,149 @@
+﻿
+<div class="modal fade" id="agregarPedidoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Pedido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="pedidoForm">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="numPedido" class="form-label">Número de Pedido</label>
+                            <input type="text" class="form-control" id="numPedido" name="NumPedido">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cliente" class="form-label">Cliente</label>
+                            <input type="text" class="form-control" id="cliente" name="Cliente">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="fecha" name="Fecha">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="vendedor" class="form-label">Vendedor</label>
+                            <input type="text" class="form-control" id="vendedor" name="Vendedor">
+                        </div>
+                    </div>
+                                        
+
+                    <h5>Detalle del Pedido</h5>
+                    <div id="itemsContainer">
+                        <!-- Tabla para mostrar el detalle -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se agregarán las filas de detalle dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button type="button" class="boton-primario" id="agregarPedido" data-bs-toggle="modal" data-bs-target="#agregarDetalleModal" data-num-pedido="" onclick="abrirAgregarDetalleModal(this)">Agregar Item</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="boton-terciario" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="boton-primario" id="guardarPedido">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="agregarDetalleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Detalle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="pedidoForm">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="numPedidoDetalle" class="form-label">Número de Pedido</label>
+                            <input type="text" class="form-control" id="numPedidoDetalle" name="NumPedido" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="producto" class="form-label">Producto</label>
+                            <input type="text" class="form-control" id="producto" name="Producto">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="precio" name="Precio">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cantidad" class="form-label">Cantidad</label>
+                            <input type="text" class="form-control" id="cantidad" name="Cantidad">
+                        </div>
+                    </div>
+
+                    <button type="button" class="boton-primario" id="agregarItem">Agregar Item</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="boton-terciario" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $("#agregarItem").click(function () {
+    var numPedido = "123"; 
+
+        $("#agregarItem").attr("data-num-pedido", numPedido);
+
+    $("#agregarDetalleModal").modal("show");
+    });
+    
+    function abrirAgregarDetalleModal(boton) {
+        const numPedido = $(boton).data("data-num-pedido");
+        console.log("Número de Pedido:", numPedido);
+        $("#numPedidoDetalle").val(numPedido);
+    }
+
+
+
+    $("#guardarDetalle").click(function () {
+    const numPedido = $("#numPedidoDetalle").val();
+    const producto = $("#producto").val();
+    const precio = $("#precio").val();
+    const cantidad = $("#cantidad").val();
+    const subtotal = $("#subtotal").val();
+
+    
+    const detalle = {
+        NumPedido: numPedido,
+        Producto: producto,
+        Precio: precio,
+        Cantidad: cantidad,
+        Subtotal: subtotal
+    };
+
+    // Agrega el detalle al pedido correspondiente en memoria (encuentra el pedido por su número)
+    // ...
+
+    // Limpia el formulario
+    // ...
+
+    // Cierra el modal "agregarDetalleModal"
+
+    $("#agregarDetalleModal").modal("hide");
+});
+
+
+</script>
